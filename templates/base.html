@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css/">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/dashboard.css">
+</head>
+<body>
+
+<nav class="navbar  navbar-fixed-top" style="background-color:#a59aca">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            {#          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">#}
+            {#            <span class="sr-only">Toggle navigation</span>#}
+            {#            <span class="icon-bar"></span>#}
+            {#            <span class="icon-bar"></span>#}
+            {#            <span class="icon-bar"></span>#}
+            {#          </button>#}
+            <a class="navbar-brand" href="#">后台管理</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {#            <li><a href="#">Dashboard</a></li>#}
+                {#            <li><a href="#">Settings</a></li>#}
+                {#            <li><a href="#">Profile</a></li>#}
+                <li><a href="/index/">主页</a></li>
+            </ul>
+            {#          <form class="navbar-form navbar-right">#}
+            {#            <input type="text" class="form-control" placeholder="Search...">#}
+            {#          </form>#}
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar" style="background-color:#a59aca" >
+            <ul class="nav nav-sidebar" >
+                <li><a href="/instrument_list/">仪表台帐</a></li>
+                <li><a href="/instrumentfaults_list/">仪表故障信息表</a></li>
+{#                <li><a href="#">Analytics</a></li>#}
+{#                <li><a href="#">Export</a></li>#}
+            </ul>
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            {% block instrumentfaults_list %}
+            {% endblock %}
+            {% block instrumentfaults_edit %}
+            {% endblock %}
+            {% block instrumentfaults_add %}
+            {% endblock %}
+            {% block instrument_list %}
+            {% endblock %}
+            {% block instrument_add %}
+            {% endblock %}
+            {% block instrument_edit %}
+            {% endblock %}
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</body>
+
+{#<body>#}
+{#<a href="/publish_add/">新增</a>#}
+{#<table border="1">#}
+{#    <tdead>#}
+{#    <tr>#}
+{#        <td>序号</td>#}
+{#        <td>id</td>#}
+{#        <td>出版社名称</td>#}
+{#        <td>操作</td>#}
+{##}
+{#    </tr>#}
+{##}
+{#    </tdead>#}
+{#    <tbody>#}
+{#    {% for publish in all_publisher %}#}
+{#    <tr>#}
+{#        <td>{{ forloop.counter }}</td>#}
+{#        <td>{{ publish.id }}</td>#}
+{#        <td>{{ publish.name }}</td>#}
+{#        <td><a href="/publish_del/?id={{ publish.id }}">删除</a>#}
+{#            <a href="/publish_edit/?id={{ publish.id }}">修改</a>#}
+{##}
+{#        </td>#}
+{#    #}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#    </tbody>#}
+{##}
+{#</table><span class="sr-only">(current)</span>#} #
+{##}
+{#</body>#}
+
+</html>

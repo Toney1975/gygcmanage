@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block instrument_list %}
+
+        <h1 class="page-header">仪表台帐</h1>
+     <a href="/instrument_add/" class="btn btn-primary" style="margin-bottom: 10px;">台账添加</a>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tdead>
+                <tr>
+                    <td>序号</td>
+                    <td>区域</td>
+                    <td>工区</td>
+                    <td>仪表名称</td>
+                    <td>位号</td>
+                    <td>完好情况</td>
+                    <td>操作</td>
+                </tr>
+            </tdead>
+            <tbody>
+            {% for row in obj %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ row.area}}</td>
+                    <td>{{ row.work_area.wname }}</td>
+                    <td>{{ row.iname }}</td>
+                    <td>{{ row.tag }}</td>
+                    <td>{{ row.intact }}</td>
+                    <td><a class="btn btn-danger btn-sm" href="/instrument_del/?id={{ row.id }}">删除</a>
+                        <a class="btn btn-primary btn-sm" href="/instrument_edit/?id={{ row.id }}">修改</a>
+                        <a class="btn btn-success btn-sm" href="/instrumentfaults_upload/?id={{ row.id }}">故障增加</a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

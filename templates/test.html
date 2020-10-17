@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/book_add/">新增</a>
+<table border="1">
+    <tdead>
+    <tr>
+        <td>序号</td>
+        <td>ID</td>
+        <td>区域</td>
+        <td>工区</td>
+        <td>提报人</td>
+        <td>操作</td>
+
+    </tr>
+
+    </tdead>
+    <tbody>
+    {% for row in obj %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ row.id }}</td>
+        <td>{{ row.cid.area}}</td>
+        <td>{{ row.cid.work_area }}</td>
+        <td>{{ row.reporter }}</td>
+        <td><a class="btn btn-danger btn-sm" href="/instrumentfaults_del/?id={{ row.id }}">删除</a>
+            <a class="btn btn-primary btn-sm" href="/instrumentfaults_del/?id={{ row.id }}">修改</a>
+        </td>
+
+{#        <td>{{ row }}</td>#}
+{#        <td><a href="/publish_del/?id={{ publish.id }}">删除</a>#}
+{#            <a href="/publish_edit/?id={{ publish.id }}">修改</a>#}
+
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+</body>
+</html>

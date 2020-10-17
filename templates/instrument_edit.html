@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block instrument_edit %}
+    <h1 class="page-header">台账编辑</h1>
+        <div class="col-sm-4 ">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div >
+                    <label for="">运行部：</label>
+                    <input type="text" class="form-control" name="area" value="{{ obj.operation_department.oname }}" readonly>
+                    <label for="">区域：</label>
+                    <input type="text" class="form-control" name="area" value="{{ obj.area }}">
+                    <label for="">工区：</label>
+                    <input type="text" name="work_area" class="form-control" value="{{ obj.work_area.wname }}" readonly>
+                    <label for="">仪表名称：</label>
+                     <input type="text" name="iname" class="form-control" value="{{ obj.iname }}">
+                    <label for="">位号：</label>
+                    <input type="text" name="tag" class="form-control" value="{{ obj.tag }}">
+                    <label for="">创建人：</label>
+                    <input type="text" name="creater" class="form-control" value="{{ obj.creater }}">
+                    <label for="">完好情况：</label>
+                    <input type="text" name="intact" class="form-control" value="{{ obj.intact }}">
+                    <label for="">修改人：</label>
+                    <input type="text" name="modifier" class="form-control" value="{{ obj.modifier }}">
+                </div>
+
+                 <input type="submit" class="btn btn-success pull-right" style="margin-top: 10px">
+            </form>
+            </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block instrumentfaults_list %}
+            <h1 class="page-header">仪表故障信息</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tdead>
+                <tr>
+                    <td>序号</td>
+                    <td>ID</td>
+                    <td>区域</td>
+                    <td>工区</td>
+                    <td>提报人</td>
+                    <td>操作</td>
+                </tr>
+            </tdead>
+            <tbody>
+            {% for row in obj %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.cid.area }}</td>
+                    <td>{{ row.cid.work_area.wname }}</td>
+                    <td>{{ row.reporter }}</td>
+                    <td><a class="btn btn-danger btn-sm" href="/instrumentfaults_del/?id={{ row.id }}">删除</a>
+                        <a class="btn btn-primary btn-sm" href="/instrumentfaults_edit/?id={{ row.id }}">修改</a>
+{#                        <a class="btn btn-primary btn-sm" href="/instrumentfaults_editphotobefore/?id={{ row.id }}">故障图片</a>#}
+{#                        <a class="btn btn-primary btn-sm" href="/instrumentfaults_editphotoafter/?id={{ row.id }}">修复图片</a>#}
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

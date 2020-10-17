@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block instrumentfaults_add %}
+    <h1 class="page-header">故障仪表增加</h1>
+        <div class="col-sm-4">
+            <form action="/instrumentfaults_add/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div >
+{#                    <label for="">标识号：</label>#}
+{#                    <input type="text" class="form-control" name="cid" value="{{ pk }}">#}
+                    <label for="">故障日期：</label>
+                    <input type="date" class="form-control" name="databefore">
+                    <label for="">修复日期：</label>
+                    <input type="date" name="repairdata" class="form-control">
+                    <label for="">工单号：</label>
+                    <input type="text" name="work_order_no" class="form-control">
+                    <label for="">故障信息：</label>
+                    <input type="text" name="fault_information" class="form-control" >
+                    <label for="">提报人：</label>
+                    <input type="text" name="reporter" class="form-control" >
+                    <label for="">修理信息：</label>
+                    <input type="text" name="implentention" class="form-control" >
+                    <label for="">执行人：</label>
+                    <input type="text" name="enforcer" class="form-control" >
+                    <div "col-xs-6 col-xs-offset-6">
+                    <label for="">故障图片上传：</label>
+                    <input type="file" name="photobefore" class="form-control" id="ph">
+                    </div>
+
+
+                </div>
+                <input type="submit" class="btn btn-success pull-right" style="margin-top: 10px">
+            </form>
+        </div>
+{% endblock %}

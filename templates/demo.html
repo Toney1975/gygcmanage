@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <style>
+        .container{
+            margin-top: 100px;
+        }
+        .btn{
+            margin-top: 10px;
+        }
+    </style>
+
+    <title>Title</title>
+</head>
+<body>
+<h4>编辑</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="">故障日期：</label>
+                    <input type="date" name="date_of_failure" class="form-control" value="{{ obj.data_of_failure|date:'Y-m-d' }}>
+                    <label for="">修复日期：</label>
+                    <input type="date" name="repair_data" class="form-control" value="{{ obj.repair_data|date:'Y-m-d' }}>
+                    <label for="">工单号：</label>
+                    <input type="text" name="work_order_no" class="form-control" value="{{ obj.work_order_no }}">
+                    <label for="">故障信息：</label>
+                    <input type="text" name="fault_information" class="form-control" value="{{ obj.fault_information }}">
+                    <label for="">提报人：</label>
+                    <input type="text" name="reporter" class="form-control" value="{{ obj.reporter }}">
+                    <label for="">修理信息：</label>
+                    <input type="text" name="implentention" class="form-control" value="{{ obj.implentention }}">
+                    <label for="">执行人：</label>
+                    <input type="text" name="enforcer" class="form-control" value="{{ obj.enforcer }}">
+                </div>
+                <input type="submit" class="btn btn-success pull-right">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
